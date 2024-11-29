@@ -101,10 +101,34 @@ void deleteAfterRelasi(ListRelasi &L, adrRelasi Prec,adrRelasi R){
 }
 
 void showDataKaryawan(ListKaryawan L){
-
+    adrKaryawan K = firstKaryawan(L);
+    if (firstKaryawan(L) == NULL) {
+        cout << "List Karyawan Kosong" << endl;
+    } else {
+        while (K != NULL) {
+            cout << "ID: " << infoKaryawan(K).id_karyawan << endl;
+            cout << "Nama: " << infoKaryawan(K).nama_karyawan << endl;
+            cout << "Alamat: " << infoKaryawan(K).alamat_karyawan << endl;
+            cout << "Kontak: " << infoKaryawan(K).telp_karyawan << endl;
+            cout << "Email: " << infoKaryawan(K).email_karyawan << endl;
+            K = nextKaryawan(K);
+        }
+    }
 }
 void showDataProjek(ListProjek L){
-
+    adrProjek P = firstProjek(L);
+    if (firstProjek(L) == NULL) {
+        cout << "List Projek Kosong" << endl;
+    } else {
+        while (P != NULL){
+            cout << "ID: " << infoProjek(P).id_projek << endl;
+            cout << "Nama: " << infoProjek(P).nama_projek << endl;
+            cout << "Jenis: " << infoProjek(P).jenis_projek << endl;
+            cout << "Durasi: " << infoProjek(P).durasi_projek << endl;
+            cout << "Anggaran: " << infoProjek(P).anggaran_projek << endl;
+            P = nextProjek(P);
+        }
+    }
 }
 void showAllDataWithRelasi(ListKaryawan K, ListProjek P, ListRelasi R){
 
