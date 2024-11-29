@@ -46,8 +46,8 @@ struct ElmKaryawan{
 
 struct ElmProjek {
     infotypeProjek infoProjek;
-    adrKaryawan nextProjek;
-    adrKaryawan prevProjek;
+    adrProjek nextProjek;
+    adrProjek prevProjek;
 };
 
 struct ElmRelasi {
