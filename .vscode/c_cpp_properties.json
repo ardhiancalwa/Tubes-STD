@@ -5,7 +5,11 @@
       "includePath": [
         "${workspaceFolder}/**"
       ],
+<<<<<<< HEAD
       "compilerPath": "C:/msys64/ucrt64/bin/gcc.exe",
+=======
+      "compilerPath": "gcc",
+>>>>>>> 34726b15683431ffbe709a2301712043d68da63c
       "cStandard": "${default}",
       "cppStandard": "${default}",
       "intelliSenseMode": "windows-gcc-x64",

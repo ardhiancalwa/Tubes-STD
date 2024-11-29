@@ -72,15 +72,15 @@ struct ListRelasi {
 void createListKaryawan(ListKaryawan &L);
 void createListProjek(ListProjek &L);
 void createListRelasi(ListRelasi &L);
-adrKaryawan createElemenKaryawan(infotypeKaryawan X, ListKaryawan L);
-adrProjek createElemenProjek(infotypeProjek X, ListProjek L);
-adrRelasi createElemenRelasi(adrKaryawan K, adrProjek P, ListRelasi L);
+adrKaryawan createElemenKaryawan(infotypeKaryawan X);
+adrProjek createElemenProjek(infotypeProjek X);
+adrRelasi createElemenRelasi(adrKaryawan K, adrProjek P);
 
 void insertLastKaryawan(ListKaryawan &L, adrKaryawan K);
 void insertFirstProjek(ListProjek &L, adrProjek P);
 void insertLastRelasi(ListRelasi &L, adrRelasi R);
 
-void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R,adrKaryawan K);
+void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R);
 void deleteLastProjek(ListProjek &L, ListRelasi &R,adrProjek P);
 void deleteFirstRelasi(ListRelasi &L, adrRelasi R);
 void deleteLastRelasi(ListRelasi &L, adrRelasi R);
@@ -97,5 +97,5 @@ adrRelasi searchDataRelasi(ListRelasi L, adrKaryawan K, adrProjek P);
 void relationKaryawanToProjek(ListKaryawan K, ListProjek P, ListRelasi &R);
 
 int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R);
-void mainMenu();
+void mainMenu(int option);
 #endif // TUBES_H_INCLUDED
