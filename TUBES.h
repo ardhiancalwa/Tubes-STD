@@ -100,5 +100,4 @@ int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R);
 void TampilanMenuproyek();
 void TampilanMenukaryawan();
 void TampilanMainMenu();
-void mainMenu();
 #endif // TUBES_H_INCLUDED

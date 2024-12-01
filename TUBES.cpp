@@ -1,27 +1,39 @@
 #include "TUBES.h"
 
 void createListKaryawan(ListKaryawan &L){
+//  IS : List Karyawan kosong
+//  FS : List Karyawan diinisialisasi dengan NULL
     firstKaryawan(L) = NULL;
 }
 void createListProjek(ListProjek &L){
+//  IS : List Projek kosong
+//  FS : List Projek diinisialisasi dengan NULL pada awal dan akhir
     firstProjek(L) = NULL;
     lastProjek(L) = NULL;
 }
 void createListRelasi(ListRelasi &L){
+//  IS : Tidak ada elemen karyawan
+//  FS : Elemen karyawan dengan data terisi dan next menunjuk NULL
     firstRelasi(L) = NULL;
 }
 adrKaryawan createElemenKaryawan(infotypeKaryawan X){
+//  IS : Tidak ada elemen karyawan
+//  FS : Elemen karyawan dengan data terisi dan next menunjuk NULL
     adrKaryawan K = new ElmKaryawan;
     infoKaryawan(K) = X;
     nextKaryawan(K) = NULL;
 }
 adrProjek createElemenProjek(infotypeProjek X){
+//  IS : Tidak ada elemen projek
+//  FS : Elemen projek dengan data terisi dan next/prev menunjuk NULL
     adrProjek P = new ElmProjek;
     infoProjek(P) = X;
     nextProjek(P) = NULL;
     prevProjek(P) = NULL;
 }
 adrRelasi createElemenRelasi(adrKaryawan K, adrProjek P){
+//  IS : Tidak ada elemen relasi
+//  FS : Elemen relasi dibuat dengan relasi antara karyawan dan projek
     adrRelasi R = new ElmRelasi;
     adrK(R) = K;
     adrP(R) = P;
@@ -29,6 +41,8 @@ adrRelasi createElemenRelasi(adrKaryawan K, adrProjek P){
 }
 
 void insertLastKaryawan(ListKaryawan &L, adrKaryawan K){
+//  IS : List Karyawan sebelum elemen baru ditambahkan
+//  FS : Elemen karyawan baru ditambahkan ke akhir list
     adrKaryawan newK = firstKaryawan(L);
 
     if (firstKaryawan(L) == NULL) {
@@ -41,6 +55,8 @@ void insertLastKaryawan(ListKaryawan &L, adrKaryawan K){
     }
 }
 void insertFirstProjek(ListProjek &L, adrProjek P){
+//  IS : List Projek sebelum elemen baru ditambahkan
+//  FS : Elemen projek baru ditambahkan ke awal list
     if (firstProjek(L) == NULL) {
         firstProjek(L) = P;
         lastProjek(L) = P;
@@ -51,6 +67,8 @@ void insertFirstProjek(ListProjek &L, adrProjek P){
     }
 }
 void insertLastRelasi(ListRelasi &L, adrRelasi R){
+//  IS : List Relasi sebelum elemen baru ditambahkan
+//  FS : Elemen relasi baru ditambahkan ke akhir list
     adrRelasi newR = firstRelasi(L);
 
     if (firstRelasi(L) == NULL) {
@@ -64,6 +82,8 @@ void insertLastRelasi(ListRelasi &L, adrRelasi R){
 }
 
 void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R){
+//  IS : List Karyawan sebelum elemen pertama dihapus
+//  FS : Elemen pertama karyawan dihapus, list diperbarui
     adrKaryawan K;
     if (firstKaryawan(L) == NULL) {
         cout << "List Karyawan Kosong" << endl;
@@ -77,6 +97,8 @@ void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R){
     }
 }
 void deleteLastProjek(ListProjek &L, ListRelasi &R,adrProjek P){
+//  IS : List Projek sebelum elemen terakhir dihapus
+//  FS : Elemen terakhir projek dihapus, list diperbarui
     if(firstProjek(L) == NULL) {
         cout << "List Projek Kosong" << endl;
     } else if (nextProjek(firstProjek(L)) == NULL) {
@@ -91,16 +113,21 @@ void deleteLastProjek(ListProjek &L, ListRelasi &R,adrProjek P){
     }
 }
 void deleteFirstRelasi(ListRelasi &L, adrRelasi R){
-
+//  IS : List relasi mungkin kosong atau memiliki elemen, dan relasi pertama siap dihapus.
+//  FS : Elemen pertama dalam list relasi dihapus. Jika list kosong, tidak ada perubahan.
 }
 void deleteLastRelasi(ListRelasi &L, adrRelasi R){
-
+//  IS : List relasi mungkin kosong atau memiliki elemen, dan relasi terakhir siap dihapus.
+//  FS : Elemen terakhir dalam list relasi dihapus. Jika list kosong, tidak ada perubahan.
 }
 void deleteAfterRelasi(ListRelasi &L, adrRelasi Prec,adrRelasi R){
-
+//  IS : List relasi mungkin kosong atau memiliki elemen, dan elemen setelah `Prec` siap dihapus.
+//  FS : Elemen setelah `Prec` dihapus dari list relasi. Jika tidak ada elemen setelah `Prec`, tidak ada perubahan.
 }
 
 void showDataKaryawan(ListKaryawan L){
+//  IS : Memulai iterasi dari elemen pertama dalam List Karyawan
+//  FS : Semua data karyawan dalam list telah ditampilkan atau list kosong
     adrKaryawan K = firstKaryawan(L);
     if (firstKaryawan(L) == NULL) {
         cout << "List Karyawan Kosong" << endl;
@@ -116,6 +143,8 @@ void showDataKaryawan(ListKaryawan L){
     }
 }
 void showDataProjek(ListProjek L){
+//  IS : Memulai iterasi dari elemen pertama dalam List Projek
+//  FS : Semua data projek dalam list telah ditampilkan atau list kosong
     adrProjek P = firstProjek(L);
     if (firstProjek(L) == NULL) {
         cout << "List Projek Kosong" << endl;
@@ -131,10 +160,14 @@ void showDataProjek(ListProjek L){
     }
 }
 void showAllDataWithRelasi(ListKaryawan K, ListProjek P, ListRelasi R){
+//  IS : Iterasi melalui List Relasi untuk menampilkan hubungan antara karyawan dan projek
+//  FS : Semua data karyawan, projek, dan relasi yang ada telah ditampilkan
 
 }
 
 adrKaryawan searchDataKaryawan(ListKaryawan L, string id_karyawan){
+//  IS : Memulai pencarian dari elemen pertama dalam List Karyawan
+//  FS : Elemen dengan ID ditemukan untuk return adrKaryawan, Tidak ada elemen dengan ID yang sesuai untuk return NULL
     adrKaryawan K = firstKaryawan(L);
     while (K != NULL) {
         if(infoKaryawan(K).id_karyawan == id_karyawan) {
@@ -145,6 +178,8 @@ adrKaryawan searchDataKaryawan(ListKaryawan L, string id_karyawan){
     return NULL;
 }
 adrProjek searchDataProjek(ListProjek L, string id_projek){
+//  IS : Memulai pencarian dari elemen pertama dalam List Projek
+//  FS : Elemen dengan ID ditemukan untuk return adrProjek, Tidak ada elemen dengan ID yang sesuai untuk return NULL
     adrProjek P = firstProjek(L);
     while (P != NULL) {
         if(infoProjek(P).id_projek == id_projek) {
@@ -155,18 +190,24 @@ adrProjek searchDataProjek(ListProjek L, string id_projek){
     return NULL;
 }
 adrRelasi searchDataRelasi(ListRelasi L, adrKaryawan K, adrProjek P){
+//  IS : Memulai pencarian dari elemen pertama dalam List Relasi
+//  FS : Elemen relasi yang sesuai ditemukan atau NULL jika tidak ditemukan
 
 }
 
 void relationKaryawanToProjek(ListKaryawan K, ListProjek P, ListRelasi &R){
-
+//  IS : Relasi antara karyawan dan projek belum dibuat
+//  FS : Relasi antara karyawan dan projek telah ditambahkan ke List Relasi
 }
 
 int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R){
-
+//  IS : Memulai penghitungan jumlah projek dari relasi karyawan
+//  FS : Jumlah projek yang dimiliki karyawan tertentu telah dihitung
 }
 
 void TampilanMainMenu(){
+//  IS : Program berada dalam keadaan siap menampilkan menu utama.
+//  FS : Menu utama ditampilkan kepada pengguna untuk memilih opsi.
     cout << "\n--Menu Pilihan Utama--\n";
     cout << "1. Karyawan" << endl;
     cout << "2. Projek" << endl;
@@ -179,6 +220,8 @@ void TampilanMainMenu(){
 }
 
 void TampilanMenukaryawan(){
+//  IS : Program berada dalam keadaan siap menampilkan menu karyawan.
+//  FS : Menu karyawan ditampilkan kepada pengguna untuk memilih opsi.
         cout << "\n--Menu Pilihan Karyawan--\n" << endl;
         cout << "1. Tambahkan Data Karyawan" << endl;
         cout << "2. Mencari Data Karyawan" << endl;
@@ -189,6 +232,8 @@ void TampilanMenukaryawan(){
 }
 
 void TampilanMenuproyek(){
+//  IS : Program berada dalam keadaan siap menampilkan menu projek.
+//  FS : Menu projek ditampilkan kepada pengguna untuk memilih opsi.
         cout << "\n--Menu Pilihan Projek--\n" << endl;
         cout << "1. Tambahkan Data Projek"<< endl;
         cout << "2. Mencari Data Projek"<< endl;
@@ -196,77 +241,4 @@ void TampilanMenuproyek(){
         cout << "4. Kembali"<< endl;
         cout <<"Pilih(1/2/3/4): ";
 
-}
-
-
-void mainMenu(){
-    int karyawanOption, projekOption, option;
-
-    cout << "\n--Menu Pilihan Utama--\n";
-    cout << "1. Karyawan" << endl;
-    cout << "2. Projek" << endl;
-    cout << "3. Tampilkan Semua Data Karyawan and Projek" << endl;
-    cout << "4. Tampilkan Data Karyawan" << endl;
-    cout << "5. Tampilkan Data Projek" << endl;
-    cout << "6. Tampilkan Jumlah Data Projek Pada Karyawan Tertentu" << endl;
-    cout << "7. Keluar" << endl;
-    cout <<"Pilih(1/2/3/4/5/6/7): ";
-    cin >> option;
-    switch(option){
-    case 1:
-        cout << "\n--Menu Pilihan Karyawan--\n";
-        cout << "1. Tambahkan Data Karyawan";
-        cout << "2. Mencari Data Karyawan";
-        cout << "3. Hapus Data Karyawan";
-        cout << "4. Kembali";
-        switch(karyawanOption){
-        case 1:
-//            insertLastKaryawan();
-            break;
-        case 2:
-//            searchDataKaryawan();
-            break;
-        case 3:
-//            deleteFirstKaryawan();
-            break;
-        default:
-            break;
-        }
-        break;
-
-    case 2:
-        cout << "\n--Menu Pilihan Projek--\n";
-        cout << "1. Tambahkan Data Projek";
-        cout << "2. Mencari Data Projek";
-        cout << "3. Hapus Data Projek";
-        cout << "4. Kembali";
-        switch(projekOption){
-        case 1:
-//                insertFirstProjek();
-            break;
-        case 2:
-//            searchDataProjek();
-            break;
-        case 3:
-//            deleteLastProjek();
-            break;
-        default:
-            break;
-        }
-        break;
-    case 3:
-//        showAllDataWithRelasi();
-        break;
-    case 4:
-//        showDataKaryawan();
-        break;
-    case 5:
-//        showDataProjek();
-        break;
-    case 6:
-//        countDataProjekFromKaryawan();
-        break;
-    default:
-        break;
-    }
 }
