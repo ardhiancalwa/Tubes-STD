@@ -41,15 +41,12 @@ int main()
                         cin >> infkar.telp_karyawan;
                         cout << "Email: ";
                         cin >> infkar.email_karyawan ;
-                        cout << "eror1" << endl;
                         adrkar = createElemenKaryawan(infkar);
-                        cout << "eror2" << endl;
-                    insertLastKaryawan(kywn, adrkar);
-                    cout << "eror3" << endl;
+                        insertLastKaryawan(kywn, adrkar);
                 }
 
 
-                case 2:
+            case 2:
 //            searchDataKaryawan();
 
             case 3:
@@ -62,7 +59,7 @@ int main()
             cin >> karyawanOption;
 
             }
-
+            break;
 
         case 2:
             TampilanMenuproyek();
@@ -102,7 +99,7 @@ int main()
             TampilanMenuproyek();
             cin >> projekOption;
         }
-
+        break;
 
     case 3:
 //        showAllDataWithRelasi();
