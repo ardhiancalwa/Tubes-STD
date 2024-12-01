@@ -166,17 +166,52 @@ int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R){
 
 }
 
-void mainMenu(int option){
-    int karyawanOption, projekOption;
+void TampilanMainMenu(){
     cout << "\n--Menu Pilihan Utama--\n";
-    cout << "1. Karyawan";
-    cout << "2. Projek";
-    cout << "3. Tampilkan Semua Data Karyawan and Projek";
-    cout << "4. Tampilkan Data Karyawan";
-    cout << "5. Tampilkan Data Projek";
-    cout << "6. Tampilkan Jumlah Data Projek Pada Karyawan Tertentu";
-    cout << "7. Keluar";
+    cout << "1. Karyawan" << endl;
+    cout << "2. Projek" << endl;
+    cout << "3. Tampilkan Semua Data Karyawan and Projek" << endl;
+    cout << "4. Tampilkan Data Karyawan" << endl;
+    cout << "5. Tampilkan Data Projek" << endl;
+    cout << "6. Tampilkan Jumlah Data Projek Pada Karyawan Tertentu" << endl;
+    cout << "7. Keluar" << endl;
+    cout <<"Pilih(1/2/3/4/5/6/7): ";
+}
 
+void TampilanMenukaryawan(){
+        cout << "\n--Menu Pilihan Karyawan--\n" << endl;
+        cout << "1. Tambahkan Data Karyawan" << endl;
+        cout << "2. Mencari Data Karyawan" << endl;
+        cout << "3. Hapus Data Karyawan" << endl;
+        cout << "4. Kembali" << endl;
+        cout <<"Pilih(1/2/3/4): ";
+
+}
+
+void TampilanMenuproyek(){
+        cout << "\n--Menu Pilihan Projek--\n" << endl;
+        cout << "1. Tambahkan Data Projek"<< endl;
+        cout << "2. Mencari Data Projek"<< endl;
+        cout << "3. Hapus Data Projek"<< endl;
+        cout << "4. Kembali"<< endl;
+        cout <<"Pilih(1/2/3/4): ";
+
+}
+
+
+void mainMenu(){
+    int karyawanOption, projekOption, option;
+
+    cout << "\n--Menu Pilihan Utama--\n";
+    cout << "1. Karyawan" << endl;
+    cout << "2. Projek" << endl;
+    cout << "3. Tampilkan Semua Data Karyawan and Projek" << endl;
+    cout << "4. Tampilkan Data Karyawan" << endl;
+    cout << "5. Tampilkan Data Projek" << endl;
+    cout << "6. Tampilkan Jumlah Data Projek Pada Karyawan Tertentu" << endl;
+    cout << "7. Keluar" << endl;
+    cout <<"Pilih(1/2/3/4/5/6/7): ";
+    cin >> option;
     switch(option){
     case 1:
         cout << "\n--Menu Pilihan Karyawan--\n";
@@ -207,7 +242,7 @@ void mainMenu(int option){
         cout << "4. Kembali";
         switch(projekOption){
         case 1:
-//            insertFirstProjek();
+//                insertFirstProjek();
             break;
         case 2:
 //            searchDataProjek();

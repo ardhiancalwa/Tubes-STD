@@ -97,5 +97,8 @@ adrRelasi searchDataRelasi(ListRelasi L, adrKaryawan K, adrProjek P);
 void relationKaryawanToProjek(ListKaryawan K, ListProjek P, ListRelasi &R);
 
 int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R);
-void mainMenu(int option);
+void TampilanMenuproyek();
+void TampilanMenukaryawan();
+void TampilanMainMenu();
+void mainMenu();
 #endif // TUBES_H_INCLUDED
