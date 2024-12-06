@@ -66,9 +66,31 @@ void insertFirstProjek(ListProjek &L, adrProjek P){
         firstProjek(L) = P;
     }
 }
+void insertFirstRelasi(ListRelasi &L, adrRelasi R){
+    // IS : List Relasi sebelum elemen baru ditambahkan di awal
+    // FS : Elemen baru ditambahkan sebagai elemen pertama dalam List Relasi
+    if (firstRelasi(L) == NULL) {
+        firstRelasi(L) = R;
+    } else {
+        nextRelasi(R) = firstRelasi(L);
+        firstRelasi(L) = R;
+    }
+}
+
+void insertAfterRelasi(ListRelasi &L, adrRelasi R){
+// IS : List Relasi sebelum elemen baru ditambahkan setelah Prec
+// FS : Elemen baru ditambahkan setelah elemen Prec dalam List Relasi
+    adrRelasi P = firstRelasi(L);
+    while (nextRelasi(P) != R) {
+        P = nextRelasi(P);
+    }
+    nextRelasi(R) = nextRelasi(P);
+    nextRelasi(P) = R;
+}
+
 void insertLastRelasi(ListRelasi &L, adrRelasi R){
-//  IS : List Relasi sebelum elemen baru ditambahkan
-//  FS : Elemen relasi baru ditambahkan ke akhir list
+// IS : List Relasi sebelum elemen baru ditambahkan di akhir
+// FS : Elemen baru ditambahkan sebagai elemen terakhir dalam List Relasi
     adrRelasi newR = firstRelasi(L);
 
     if (firstRelasi(L) == NULL) {
@@ -115,14 +137,42 @@ void deleteLastProjek(ListProjek &L, ListRelasi &R,adrProjek P){
 void deleteFirstRelasi(ListRelasi &L, adrRelasi R){
 //  IS : List relasi mungkin kosong atau memiliki elemen, dan relasi pertama siap dihapus.
 //  FS : Elemen pertama dalam list relasi dihapus. Jika list kosong, tidak ada perubahan.
+    if (firstRelasi(L) == NULL) {
+        cout << "List Relasi Kosong!" << endl;
+    } else {
+        R = firstRelasi(L);
+        firstRelasi(L) = nextRelasi(R);
+        nextRelasi(R) = NULL;
+    }
 }
 void deleteLastRelasi(ListRelasi &L, adrRelasi R){
 //  IS : List relasi mungkin kosong atau memiliki elemen, dan relasi terakhir siap dihapus.
 //  FS : Elemen terakhir dalam list relasi dihapus. Jika list kosong, tidak ada perubahan.
+    if (firstRelasi(L) == NULL) {
+        cout << "List Relasi Kosong!" << endl;
+    } else if (nextRelasi(firstRelasi(L)) == NULL) {
+        R = firstRelasi(L);
+        firstRelasi(L) = NULL;
+    } else {
+        adrRelasi temp = firstRelasi(L);
+        while (nextRelasi(nextRelasi(temp)) != NULL) {
+            temp = nextRelasi(temp);
+        }
+        R = nextRelasi(temp);
+        nextRelasi(temp) = NULL;
+    }
 }
-void deleteAfterRelasi(ListRelasi &L, adrRelasi Prec,adrRelasi R){
+void deleteAfterRelasi(ListRelasi &L, adrRelasi R){
 //  IS : List relasi mungkin kosong atau memiliki elemen, dan elemen setelah `Prec` siap dihapus.
 //  FS : Elemen setelah `Prec` dihapus dari list relasi. Jika tidak ada elemen setelah `Prec`, tidak ada perubahan.
+    adrRelasi P = firstRelasi(L);
+    while (nextRelasi(P) != R) {
+        P = nextRelasi(P);
+    }
+    adrRelasi Q;
+    Q = nextRelasi(P);
+    nextRelasi(P) = nextRelasi(Q);
+    nextRelasi(Q) = NULL;
 }
 
 void showDataKaryawan(ListKaryawan L){
@@ -200,7 +250,7 @@ void relationKaryawanToProjek(ListKaryawan K, ListProjek P, ListRelasi &R){
 //  FS : Relasi antara karyawan dan projek telah ditambahkan ke List Relasi
 }
 
-int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R){
+int countDataProjekFromKaryawan(string id, ListRelasi R){
 //  IS : Memulai penghitungan jumlah projek dari relasi karyawan
 //  FS : Jumlah projek yang dimiliki karyawan tertentu telah dihitung
 }
