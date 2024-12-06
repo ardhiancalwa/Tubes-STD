@@ -159,9 +159,36 @@ void showDataProjek(ListProjek L){
         }
     }
 }
-void showAllDataWithRelasi(ListKaryawan K, ListProjek P, ListRelasi R){
+void showAllDataWithRelasi(ListKaryawan K, ListRelasi R){
 //  IS : Iterasi melalui List Relasi untuk menampilkan hubungan antara karyawan dan projek
 //  FS : Semua data karyawan, projek, dan relasi yang ada telah ditampilkan
+    adrKaryawan q;
+
+    adrRelasi e;
+    q = firstKaryawan(K);
+
+    if (q == NULL) {
+        cout << "========================" << endl;
+        cout << "       data kosong" << endl;
+        cout << "========================" << endl;
+    }else {
+        while (q != NULL){
+                cout << "==========================="<< endl;
+                cout << "ID karyawan:" << infoKaryawan(q).id_karyawan << endl;
+                cout << "Nama karyawan :" << infoKaryawan(q).nama_karyawan<< endl;
+                cout << "List projek yang dimiliki: " << endl;
+            e = firstRelasi(R);
+            while (e != NULL){
+                if (infoKaryawan(q).id_karyawan == infoKaryawan(adrK(e)).id_karyawan){
+                    cout << "-" << infoProjek(adrP(e)).id_projek << endl;
+                }
+                e = nextRelasi(e);
+            }
+            cout << "==========================="<< endl;
+            q = nextKaryawan(q);
+        }
+
+    }
 
 }
 
@@ -200,9 +227,20 @@ void relationKaryawanToProjek(ListKaryawan K, ListProjek P, ListRelasi &R){
 //  FS : Relasi antara karyawan dan projek telah ditambahkan ke List Relasi
 }
 
-int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R){
+int countDataProjekFromKaryawan(string ID, ListRelasi R){
 //  IS : Memulai penghitungan jumlah projek dari relasi karyawan
 //  FS : Jumlah projek yang dimiliki karyawan tertentu telah dihitung
+    adrRelasi p;
+    int jumlah = 0;
+    while (p!= NULL){
+        if (infoKaryawan(adrK(p)).id_karyawan == ID){
+            jumlah = jumlah + 1;
+        }
+        p = nextRelasi(p);
+    }
+    return jumlah;
+
+
 }
 
 void TampilanMainMenu(){
