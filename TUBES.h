@@ -76,12 +76,25 @@ adrKaryawan createElemenKaryawan(infotypeKaryawan X);
 adrProjek createElemenProjek(infotypeProjek X);
 adrRelasi createElemenRelasi(adrKaryawan K, adrProjek P);
 
+void insertFirstKaryawan(ListKaryawan &L, adrKaryawan K);
 void insertLastKaryawan(ListKaryawan &L, adrKaryawan K);
-void insertFirstProjek(ListProjek &L, adrProjek P);
-void insertLastRelasi(ListRelasi &L, adrRelasi R);
+void insertAfterKaryawan(ListKaryawan &L, adrKaryawan Prec, adrKaryawan K);
 
-void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R);
-void deleteLastProjek(ListProjek &L, ListRelasi &R,adrProjek P);
+void insertFirstProjek(ListProjek &L, adrProjek P);
+void insertLastProjek(ListProjek &L, adrProjek P);
+void insertAfterProjek(ListProjek &L, adrProjek Prec, adrProjek P);
+
+void insertFirstRelasi(ListRelasi &L, adrRelasi R);
+void insertLastRelasi(ListRelasi &L, adrRelasi R);
+void insertAfterRelasi(ListRelasi &L, adrRelasi Prec, adrRelasi R);
+
+void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R, adrKaryawan K);
+void deleteLastKaryawan(ListKaryawan &L, ListRelasi &R, adrKaryawan K);
+void deleteAfterKaryawan(ListKaryawan &L, adrKaryawan Prec, adrKaryawan K ListRelasi &R);
+
+void deleteFirstProjek(ListProjek &L, )
+void deleteLastProjek(ListProjek &L, ListRelasi &R, adrProjek P);
+
 void deleteFirstRelasi(ListRelasi &L, adrRelasi R);
 void deleteLastRelasi(ListRelasi &L, adrRelasi R);
 void deleteAfterRelasi(ListRelasi &L, adrRelasi Prec,adrRelasi R);
