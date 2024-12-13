@@ -23,7 +23,7 @@ struct Karyawan {
     string id_karyawan;
     string nama_karyawan;
     string  alamat_karyawan;
-    int telp_karyawan;
+    int64_t telp_karyawan;
     string email_karyawan;
 };
 
@@ -32,7 +32,7 @@ struct Projek {
     string nama_projek;
     string jenis_projek;
     int durasi_projek;
-    int anggaran_projek;
+    int64_t anggaran_projek;
 };
 
 typedef struct ElmKaryawan *adrKaryawan;
@@ -72,46 +72,39 @@ struct ListRelasi {
 void createListKaryawan(ListKaryawan &L);
 void createListProjek(ListProjek &L);
 void createListRelasi(ListRelasi &L);
+
 adrKaryawan createElemenKaryawan(infotypeKaryawan X);
 adrProjek createElemenProjek(infotypeProjek X);
 adrRelasi createElemenRelasi(adrKaryawan K, adrProjek P);
 
-void insertFirstKaryawan(ListKaryawan &L, adrKaryawan K);
 void insertLastKaryawan(ListKaryawan &L, adrKaryawan K);
-void insertAfterKaryawan(ListKaryawan &L, adrKaryawan Prec, adrKaryawan K);
-
 void insertFirstProjek(ListProjek &L, adrProjek P);
-void insertLastProjek(ListProjek &L, adrProjek P);
-void insertAfterProjek(ListProjek &L, adrProjek Prec, adrProjek P);
-
 void insertFirstRelasi(ListRelasi &L, adrRelasi R);
-void insertLastRelasi(ListRelasi &L, adrRelasi R);
 void insertAfterRelasi(ListRelasi &L, adrRelasi R);
+void insertLastRelasi(ListRelasi &L, adrRelasi R);
 
-void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R, adrKaryawan K);
-void deleteLastKaryawan(ListKaryawan &L, ListRelasi &R, adrKaryawan K);
-void deleteAfterKaryawan(ListKaryawan &L, adrKaryawan Prec, adrKaryawan K, ListRelasi &R);
-
-void deleteFirstProjek(ListProjek &L, ListRelasi &R, adrProjek P);
-void deleteLastProjek(ListProjek &L, ListRelasi &R, adrProjek P);
-void deleteAfterProjek(ListProjek &L, ListRelasi &R, adrProjek P);
-
-void deleteFirstRelasi(ListRelasi &L, adrRelasi R);
-void deleteLastRelasi(ListRelasi &L, adrRelasi R);
-void deleteAfterRelasi(ListRelasi &L, adrRelasi R);
+void deleteFirstKaryawan(ListKaryawan &L, ListRelasi &R);
+void deleteLastProjek(ListProjek &L, ListRelasi &R);
+void deleteFirstRelasi(ListRelasi &L);
+void deleteLastRelasi(ListRelasi &L);
+void deleteAfterRelasi(ListRelasi &L);
 
 void showDataKaryawan(ListKaryawan L);
 void showDataProjek(ListProjek L);
-void showAllDataWithRelasi(ListKaryawan K, ListProjek P, ListRelasi R);
+void showAllDataWithRelasi(ListKaryawan K, ListRelasi R);
 
 adrKaryawan searchDataKaryawan(ListKaryawan L, string id_karyawan);
 adrProjek searchDataProjek(ListProjek L, string id_projek);
 adrRelasi searchDataRelasi(ListRelasi L, adrKaryawan K, adrProjek P);
 
-void relationKaryawanToProjek(ListKaryawan K, ListProjek P, ListRelasi &R);
+void relationKaryawanToProjek(adrKaryawan K, adrProjek P, ListRelasi &R);
 
-int countDataProjekFromKaryawan(ListKaryawan K, ListProjek P, ListRelasi R);
-void TampilanMenuproyek();
-void TampilanMenukaryawan();
+void deleteRelasiKaryawan(adrKaryawan K, ListRelasi &R);
+void deleteRelasiProjek(adrProjek P, ListRelasi &R);
+void deleteRelasiKaryawanProjek(adrKaryawan K, adrProjek P, ListRelasi &R);
+
+int countDataProjekFromKaryawan(string ID, ListRelasi R);
 void TampilanMainMenu();
+void TampilanMenukaryawan();
+void TampilanMenuproyek();
 #endif // TUBES_H_INCLUDED
